@@ -39,6 +39,12 @@ mvn clean test
 
 To check the content of the database while the application is running, navigate to: http://localhost:8080/h2-console
 
+Connection details (as configured in `application.yml`)
+
+- JDBC URL: `jdbc:h2:mem:movies`
+- User Name: `admin`
+- Password: `password`
+
 ### Swagger UI
 
 To check the documentation of the REST API and to be able to execute some requests, navigate to: http://localhost:8080/swagger-ui/index.html
