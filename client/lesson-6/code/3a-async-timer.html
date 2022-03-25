@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example #3 - Asnych call with setTimeout</title>
+  </head>
+  <body>
+    <script>
+function printNumber (num) {
+  setTimeout(
+    function () {
+      console.log("Your number is: ", num)
+    },
+    Math.floor(Math.random() * 100) + 1
+  );
+}
+
+function countToThree () {
+  printNumber(1);
+  printNumber(2);
+  printNumber(3);
+}
+
+countToThree(); // What is the result of this? Why?
+
+    </script>
+  </body>
+</html>
