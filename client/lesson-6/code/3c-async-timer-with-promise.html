@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example #3 - Async call with setTimeout</title>
+  </head>
+  <body>
+    <script>
+function printNumber (num) {
+  return new Promise((resolve, reject) => {
+    setTimeout(
+      () => {
+        console.log("Your number:", num);
+        resolve();
+      },
+      Math.floor(Math.random() *100 ) + 1
+    );
+  });
+}
+
+function countToThree () {
+  printNumber(1)
+    .then(function() {
+      // Always return promises!!!
+      return printNumber(2);
+    })
+    .then(() => printNumber(3));
+}
+/**
+ * alternate usage:
+  async function countToThreeAwait() {
+    await printNumber(1);
+    await printNumber(2);
+    await printNumber(3);
+  };
+ */
+
+countToThree(); // What is the result of this? Why?
+
+    </script>
+  </body>
+</html>
