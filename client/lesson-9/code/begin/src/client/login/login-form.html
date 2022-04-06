@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <style type="text/css">
+      form { max-width: 300px; margin: 0 auto; }
+      input, label { display: block; }
+      label { margin-top: 5px; }
+      label.error { color: #F22; }
+      input { width: 100%; }
+      input.error { border-color: #F22 }
+      button { display: block; margin: 5px auto 0; }
+      .form-message { text-align: center; }
+      .form-message.error { color: #F22; }
+    </style>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form action="" method="post" name="login">
+      <p class="form-message">Please enter your credentials</p>
+      <label for="login-username">Username</label>
+      <input type="email" name="username" id="login-username" />
+      <label for="login-password">Password</label>
+      <input type="password" name="password" id="login-password" />
+      <button type="submit">Login</button>
+    </form>
+    <footer>
+      <nav>
+        <ul>
+          <li><a href="/">Home page</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>
