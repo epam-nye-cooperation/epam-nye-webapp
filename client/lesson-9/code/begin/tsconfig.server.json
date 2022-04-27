@@ -1,0 +1,19 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "lib": [
+            "ES2019"
+        ],
+        "module": "CommonJS",
+        "noEmit": false,
+        "outDir": "dist",
+        "target": "ES6"
+    },
+    "include": [
+        "src/server/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "src/server/**/*.spec.ts"
+    ]
+}

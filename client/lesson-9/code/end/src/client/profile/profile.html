@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User profile</title>
+  </head>
+  <body>
+    <main>
+      <h1>User profile</h1>
+      <a href="#" class="logout" role="button">Logout</a>
+      <div class="user-info"></div>
+    </main>
+    <footer>
+      <nav>
+        <ul>
+          <li><a href="/">Home page</a></li>
+        </ul>
+      </nav>
+    </footer>
+    <script type="template" id="profile-template">
+      <dl>
+        <dt>Name</dt>
+        <dd>{name}</dd>
+        <dt>E-mail:</dt>
+        <dd>{email}</dd>
+      </dl>
+    </script>
+    <script type="text/javascript" src="js/profile.js"></script>
+  </body>
+</html>
