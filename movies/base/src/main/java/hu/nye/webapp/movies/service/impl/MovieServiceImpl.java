@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import hu.nye.webapp.movies.dto.MovieDTO;
 import hu.nye.webapp.movies.entity.MovieEntity;
+import hu.nye.webapp.movies.exception.MovieNotFoundException;
 import hu.nye.webapp.movies.repository.MovieRepository;
 import hu.nye.webapp.movies.service.MovieService;
 import org.modelmapper.ModelMapper;
@@ -57,6 +58,32 @@ public class MovieServiceImpl implements MovieService {
         MovieEntity savedMovie = movieRepository.save(movieEntity);
 
         return modelMapper.map(savedMovie, MovieDTO.class);
+    }
+
+    @Override
+    public MovieDTO update(MovieDTO movieDTO) {
+        Long id = movieDTO.getId();
+
+        boolean existsById = movieRepository.existsById(id);
+
+        if (existsById) {
+            MovieEntity movieToSave = modelMapper.map(movieDTO, MovieEntity.class);
+            MovieEntity savedMovie = movieRepository.save(movieToSave);
+            return modelMapper.map(savedMovie, MovieDTO.class);
+        } else {
+            throw new MovieNotFoundException("Movie not found with id " + id);
+        }
+    }
+
+    @Override
+    public void delete(Long id) {
+        Optional<MovieEntity> optionalMovie = movieRepository.findById(id);
+
+        if (optionalMovie.isPresent()) {
+            movieRepository.delete(optionalMovie.get());
+        } else {
+            throw new MovieNotFoundException("Movie not found with id " + id);
+        }
     }
 
 }

@@ -47,9 +47,11 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
 
     private void doAuthorization(HttpServletRequest request) {
         String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
+        // Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJtb3ZpZXMiLCJleHAiOjE2Nzk1MDI1NjYsInVzZXJuYW1lIjoidGVzdCJ9.5eo6O30fJpIDp96oA5hZjzZTvgtnhpEo4esJByy-r3k
 
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             String jwt = authorizationHeader.split(" ")[1];
+            // eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJtb3ZpZXMiLCJleHAiOjE2Nzk1MDI1NjYsInVzZXJuYW1lIjoidGVzdCJ9.5eo6O30fJpIDp96oA5hZjzZTvgtnhpEo4esJByy-r3k
 
             String username = jwtUtil.verifyAndDecodeToken(jwt);
 
